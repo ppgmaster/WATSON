@@ -1,6 +1,7 @@
 # hallo bro :v
 
 from wibu.YNTKTS import *
+import urllib.request
 
 areYOUgay=random.choice(["Kang.Pacman","Lo.Ngentod.Ajg"])
 
