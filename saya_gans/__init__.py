@@ -1,5 +1,6 @@
 # coding:utf-8
 # rekod tod? sertain sumbernya heheh :v
+# github : https://github.com/itsuki10
 
 from modul import *
 from wibu.login import login
@@ -18,7 +19,6 @@ class awokawokawok:
 		self.semua=open("cookies/info.txt").read()
 		self.jonson=json.loads(self.semua)
 		self.cookies=self.jonson["cookies"]
-		self.takeuser=asu(url,self.cookies)
 		self.main_menu()
 		
 	def cek_folder(self):
@@ -46,10 +46,10 @@ class awokawokawok:
 		os.system("clear")
 	
 	def main_menu(self):
-		self.cek_cookies()
 		global longentod
-
-		print("          \x1b[36m╔╦╗┬─┐┌─┐┌─┐   ╔═╗┌┐ \n           ║║├┬┘├─┤│ ┬───╠╣ ├┴┐\n          ═╩╝┴└─┴ ┴└─┘   ╚  └─┘\n      -={ Created By Itsuki-Kun }=-\x1b[0m\n")
+		self.cek_cookies()
+		takeuser=asu(url,self.cookies)
+		print("          \x1b[36m╔╦╗┬─┐┌─┐┌─┐   ╔═╗┌┐ \n           ║║├┬┘├─┤│ ┬───╠╣ ├┴┐\n          ═╩╝┴└─┴ ┴└─┘   ╚  └─┘\n     Created By Itsuki-Kun For Public\x1b[0m\n")
 		print(f" * uid  : {self.jonson['uid']}")
 		print(f" * nama : {self.jonson['nama']}")
 		print(f" * username : {self.jonson['username']}\n" if self.jonson["username"] is not None else "")
@@ -84,14 +84,14 @@ class awokawokawok:
 				kembali(" ! limit bro, silahkan tunggu atau ganti akun",self.main_menu)
 			else:
 				print(" * target name : "+parser(respon,"html.parser").find("title").text)
-				longentod=self.takeuser.followers(respon)
+				longentod=takeuser.followers(respon)
 			
 		elif pilih in ("2","02"):
 			try: respon=req.get(f"{url}/me/friends",cookies=self.cookies).text
 			except koneksi_error: exit(" ! kesalahan pada koneksi")
 			if "Tidak Ada Teman Untuk Ditampilkan" in respon:
 				kembali(" ! tidak ada teman",self.main_menu)
-			longentod=self.takeuser.fl(respon)
+			longentod=takeuser.fl(respon)
 			
 		elif pilih in ("3","03"):
 			user=input(" ? id grup : ")
@@ -107,7 +107,7 @@ class awokawokawok:
 				kembali(" ! limit bro, silahkan tunggu atau ganti akun",self.main_menu)
 			else:
 				print(" * target name : "+parser(respon,"html.parser").find("title").text[8:])
-				longentod=self.takeuser.grup(respon,user)
+				longentod=takeuser.grup(respon,user)
 			
 		elif pilih in ("4","04"):
 			user=input(" ? query : ")
@@ -124,7 +124,7 @@ class awokawokawok:
 				while jumlah.isdigit() is False:
 					print(" ! jangan kosong ngentod" if jumlah in (""," ") else " ! harus berupa angka")
 					jumlah=input(" ? jumlah : ")
-				longentod=self.takeuser.cari(respon,int(jumlah))
+				longentod=takeuser.cari(respon,int(jumlah))
 			
 		elif pilih in ("5","05"):
 			user=input(" ? username/id : ")
@@ -135,21 +135,21 @@ class awokawokawok:
 			try: respon=req.get(usek,cookies=self.cookies).text
 			except koneksi_error: exit(" ! kesalahan pada koneksi")
 			if "Tidak Ada Teman Untuk Ditampilkan" in respon:
-				kembali(" ! tidak ada teman atau daftar teman tidak di publikasikan",self.main_menu)
+				kembali(" ! sepertinya daftar teman tidak di publikasikan",self.main_menu)
 			if "Anda Tidak Dapat Menggunakan Fitur Ini Sekarang" in respon:
 				kembali(" ! limit bro, silahkan tunggu atau ganti akun",self.main_menu)
 			if "Konten Tidak Ditemukan" in respon or "Halaman yang Anda minta tidak ditemukan." in respon:
 				kembali(f" ! pengguna dengan id {user} tidak ditemukan" if user.isdigit() else f" ! pengguna dengan username {user} tidak ditemukan",self.main_menu)
 			else:
 				print(" * target name : "+parser(respon,"html.parser").find("title").text)
-				longentod=self.takeuser.fl(respon)
+				longentod=takeuser.fl(respon)
 			
 		elif pilih in ("6","06"):
 			try: respon=req.get(f"{url}/friends/center/requests/#friends_center_main",cookies=self.cookies).text
 			except koneksi_error: exit(" ! kesalahan pada koneksi")
 			if "Tidak Ada Permintaan" in respon:
 				kembali(" ! tidak ada permintaan pertemanan",self.main_menu)
-			longentod=self.takeuser.request(respon)
+			longentod=takeuser.request(respon)
 			
 		elif pilih in ("7","07"):
 			user=input(" ? url/id postingan : ")
@@ -175,7 +175,7 @@ class awokawokawok:
 				while jumlah.isdigit() is False:
 					print(" ! jangan kosong ngentod" if jumlah in (""," ") else " ! harus berupa angka")
 					jumlah=input(" ? jumlah : ")
-				longentod=self.takeuser.like_post(respon,int(jumlah))
+				longentod=takeuser.like_post(respon,int(jumlah))
 			except AttributeError: exit(" ! error tidak diketahui")
 			except koneksi_error: exit(" ! kesalahan pada koneksi")
 			
