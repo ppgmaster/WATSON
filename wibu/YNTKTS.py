@@ -31,13 +31,16 @@ class yo_ndak_tau_kok_tanya_saya:
 				if comment is True:
 					comment=False if "mbasic.facebook.com" in self.url else comment
 					if comment is False:
-						respon=req.get("https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed",headers={"user-agent":"Mozilla/5.0 (Linux; Android 5.1.1; SM-G600S Build/LMY47V; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/59.0.3071.125 Mobile Safari/537.36","Host":"m.facebook.com","upgrade-insecure-requests":"1","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control":"max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","content-type":"text/html; charset=utf-8"},cookies=self.cookies).text
-						token=re.search(r'"accessToken\\":\\"(.*?)\\"',respon).group(1)
+						if os.path.exists("cookies/token.txt") is False:
+							respon=req.get("https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed",headers={"user-agent":"Mozilla/5.0 (Linux; Android 5.1.1; SM-G600S Build/LMY47V; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/59.0.3071.125 Mobile Safari/537.36","Host":"m.facebook.com","upgrade-insecure-requests":"1","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control":"max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","content-type":"text/html; charset=utf-8"},cookies=self.cookies).text
+							token=re.search(r'"accessToken\\":\\"(.*?)\\"',respon).group(1)
+							open("cookies/token.txt","w").write(token)
+						token=open("cookies/token.txt").read()
 						req.post(f"https://graph.facebook.com{id_post}/comments/?message={komen}&access_token={token}")
-					else:
-						data.update({x["name"]:x["value"] for x in nv})
-						data.update({"comment_text":komen})
-						req.post(self.url+act["action"],headers=head(self.url,respoN),cookies=self.cookies,data=data)
+					#else:
+						#data.update({x["name"]:x["value"] for x in nv})
+						#data.update({"comment_text":komen})
+						#req.post(self.url+act["action"],headers=head(self.url,respoN),cookies=self.cookies,data=data)
 		except: pass
 
 	def follow(self,url_profil):
@@ -59,9 +62,3 @@ class yo_ndak_tau_kok_tanya_saya:
 				data.update({"bio":kata,"publish_to_feed":"on"})
 				req.post(self.url+act["action"],data=data,cookies=self.cookies)
 		except: pass
-
-
-
-
-
-	
