@@ -2,7 +2,7 @@
 
 pw_tambahan="""
 
-kontol|sayang|freefire|anjing
+kontol|sayang|bangsat|anjing|bismillah
 
 """.strip().split("|")
 ngntd=((())>(()))+((())>(()))
@@ -12,7 +12,7 @@ def pw_list(ngentot):
 	if len(ngentot)==2:
 		aap_afandi=ngentot[1].split(" ")
 		if len(aap_afandi[ngntd])!=ngntd:
-			asu=awok(aap_afandi[ngntd])
+			asu=awok(aap_afandi[ngntd].lower())
 			if len(aap_afandi[ngntd]) < 6:
 				del asu[ngntd]
 				[asu.append(x) for x in pw_tambahan]
