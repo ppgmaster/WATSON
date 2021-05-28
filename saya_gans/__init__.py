@@ -39,8 +39,8 @@ class awokawokawok:
 		try: respon=req.get(f"{url}/profile.php",cookies=self.cookies)
 		except koneksi_error: exit(" ! kesalahan pada koneksi")
 		if "mbasic_logout_button" not in respon.text:
-			try: os.remove("cookies/info.txt")
-			except: os.system("rm -rf cookies/info.txt")
+			try: os.remove("cookies/info.txt");os.remove("cookies/token.txt")
+			except: os.system("rm -rf cookies/info.txt && rm -rf cookies/token.txt")
 			exit(" ! cookie expired, harap login ulang")
 		url=url.replace("mbasic","free") if "free.facebook" in respon.url else url
 		os.system("clear")
@@ -183,8 +183,8 @@ class awokawokawok:
 			guard(url,self.cookies,self.main_menu)
 		
 		elif pilih in ("9","09"):
-			try: os.remove("cookies/info.txt")
-			except: os.system("rm -rf cookies/info.txt")
+			try: os.remove("cookies/info.txt");os.remove("cookies/token.txt")
+			except: os.system("rm -rf cookies/info.txt && rm -rf cookies/token.txt")
 			exit(" ! gagal menghapus cookie, silahkan hapus secara manual" if os.path.exists("cookies/info.txt") else " * sukses menghapus cookie")
 		
 		elif pilih in tuple("rR"):
