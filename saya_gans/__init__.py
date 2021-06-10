@@ -1,6 +1,8 @@
 # coding:utf-8
+# update kamis 10 juni 2021
 # rekod tod? sertain sumbernya heheh :v
 # github : https://github.com/itsuki10
+# facebook : https://www.facebook.com/nakano.itsuki.18488
 
 from modul import *
 from wibu.login import login
@@ -13,8 +15,8 @@ url="https://mbasic.facebook.com"
 longentod="lo lebih ngentod"
 
 class awokawokawok:
+	
 	def __init__(self):
-		
 		self.cek_folder()
 		self.semua=open("cookies/info.txt").read()
 		self.jonson=json.loads(self.semua)
@@ -28,10 +30,10 @@ class awokawokawok:
 		if os.path.exists("result/chek.txt") is False: open("result/chek.txt","a")
 		if os.path.exists("cookies/info.txt") is False:
 			os.system("clear")
-			cookie=input("\n\n ? masukkan cookie : ")
+			cookie=input("\n ! pastikan mengakses facebook dalam mode data :v\n\n ? masukkan cookie facebook : ")
 			while cookie in (""," "):
 				print(" ! jangan kosong ngentod")
-				cookie=input(" ? masukkan cookie : ")
+				cookie=input(" ? masukkan cookie facebook : ")
 			login(url,{"cookie":cookie})
 	
 	def cek_cookies(self):
@@ -87,7 +89,8 @@ class awokawokawok:
 				longentod=takeuser.followers(respon)
 			
 		elif pilih in ("2","02"):
-			try: respon=req.get(f"{url}/me/friends",cookies=self.cookies).text
+			usek=f"{url}/me/friends" if self.jonson['username'] else f"{url}/profile.php?v=friends"
+			try: respon=req.get(usek,cookies=self.cookies).text
 			except koneksi_error: exit(" ! kesalahan pada koneksi")
 			if "Tidak Ada Teman Untuk Ditampilkan" in respon:
 				kembali(" ! tidak ada teman",self.main_menu)
@@ -110,6 +113,7 @@ class awokawokawok:
 				longentod=takeuser.grup(respon,user)
 			
 		elif pilih in ("4","04"):
+			print(" ! isi query dengan nama orang")
 			user=input(" ? query : ")
 			while user in (""," "):
 				print(" ! jangan kosong ngentod")
