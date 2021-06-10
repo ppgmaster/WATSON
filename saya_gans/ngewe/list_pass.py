@@ -2,7 +2,7 @@
 
 pw_tambahan="""
 
-kontol|sayang|bangsat|anjing|bismillah
+kontol|sayang
 
 """.strip().split("|")
 ngntd=((())>(()))+((())>(()))
