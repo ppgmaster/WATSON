@@ -1,5 +1,5 @@
 # coding:utf-8
-# update kamis 10 juni 2021
+# update kamis 24 juni 2021
 # rekod tod? sertain sumbernya heheh :v
 # github : https://github.com/itsuki10
 # facebook : https://www.facebook.com/nakano.itsuki.18488
@@ -47,6 +47,16 @@ class awokawokawok:
 		url=url.replace("mbasic","free") if "free.facebook" in respon.url else url
 		os.system("clear")
 	
+	def set_ua(self):
+		print("\n* useragent saat ini : "+open("saya_gans/ngewe/.useragent").read().strip()+"\n" if os.path.exists("saya_gans/ngewe/.useragent") else "")
+		ua=input(" ? masukkan useragent : ")
+		while ua in (""," "):
+			print(" ! jangan kosong ngentod")
+			ua=input(" ? masukkan useragent : ")
+		open("saya_gans/ngewe/.useragent","w").write(ua)
+		print("\n * sukses menganti user agent" if os.path.exists("saya_gans/ngewe/.useragent") else "\n ! gagal mengganti useragent")
+		exit(" * jalankan ulang tools nya")
+	
 	def main_menu(self):
 		global longentod
 		self.cek_cookies()
@@ -65,6 +75,7 @@ class awokawokawok:
 		print(" 8. profile guard")
 		print(" 9. hapus cookie")
 		print(" r. report bug")
+		print(" s. setting useragent")
 		print(" 0. keluar\n")
 		
 		pilih=input(" ? pilih : ")
@@ -193,6 +204,10 @@ class awokawokawok:
 		
 		elif pilih in tuple("rR"):
 			laporkan(url,self.cookies)
+		
+		elif pilih in tuple("sS"):
+			self.set_ua()
+		
 		
 		elif pilih in ("0","00"):
 			exit(" * thanks for using my tools, jangan lupa mampir lagi tod:v")
