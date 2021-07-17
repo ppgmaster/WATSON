@@ -18,9 +18,9 @@ class login:
 			print(" * mohon tunggu sebentar ngentod :v")
 			url=url.replace("mbasic","free") if "free.facebook" in respon.url else url
 			if "Laporkan Masalah" not in respon.text:
-				lang(url,cookie)
-				try: respon=req.get(f"{url}/profile.php?v=info",cookies=cookie)
-				except koneksi_error: exit(" ! kesalahan pada koneksi")
+				mmk=parser(respon.text,"html.parser").find("b",{"class":True})
+				mmk="bahasa "+mmk.text.lower().replace("basa","").replace("bahasa","")+" terdeteksi" if mmk else ""
+				exit(f" ! oops {mmk}, silahkan untuk merubah ke bahasa Indonesia terlebih dahulu melalui browser")
 			generate(cookie["cookie"],parser(respon.text,"html.parser"))
 			koh=yo_ndak_tau_kok_tanya_saya(url,cookie)
 			# jangan di ganti ya bro hehehe :)
