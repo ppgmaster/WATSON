@@ -112,12 +112,13 @@ class gadag_user:
 			for __ in _:
 				aap_gans.append(re.search("id=(\d*)",__[0]).group(1)+"(Aap Gans)"+__[1] if "profile.php" in __[0] else __[0]+"(Aap Gans)"+__[1])
 				print(f"\r * mengumpulkan {len(aap_gans)} user, ctrl+c stop",end="")
-				if len(aap_gans)==jumlah:
-					why=True;break
+				if jumlah:
+					if len(aap_gans)==jumlah:
+						why=True;break
 			if why is False:
 				if "Lihat Selengkapnya" in link:
-					self.like_post(self.url+parser(link,"html.parser").find("a",string="Lihat Selengkapnya")["href"],jumlah,True)
+					self.like_post(self.url+parser(link,"html.parser").find("a",string="Lihat Selengkapnya")["href"].replace("limit=10","limit=1500"),jumlah,True)
 			return aap_gans
 		except: return aap_gans
-				
-				
+	
+	
