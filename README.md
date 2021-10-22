@@ -2,7 +2,7 @@
 ```php
 $ pkg install git python -y
 $ git clone https://github.com/ppgmaster/WATSON
-$ cd drag-fb
+$ cd WATSON
 $ pip install -r requirements.txt
 $ python main.py
 ```
