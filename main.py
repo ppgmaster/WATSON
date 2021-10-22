@@ -1,6 +1,6 @@
 import sys,shutil
 
-runtah=["saya_gans/__pycache__","modul/__pycache__","wibu/__pycache__","saya_gans/ngewe/__pycache__"]
+runtah=["surya_gans/__pycache__","modul/__pycache__","wibu/__pycache__","saya_gans/ngewe/__pycache__"]
 
 if sys.version[0]!="3":
 	exit(" ! harap gunakan python3")
